@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- TODO: Browser tab me apne hotel ka naam likhe -->
+    <title>About Us | KAVYA RESIDENCY</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+            background: #f8f7f4;
+            line-height: 1.7;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            width: 100%;
+            background: #fff;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #b18a4a;
+        }
+
+        /* ================= PAGE HERO ================= */
+
+        .about-hero {
+            height: 55vh;
+            background:
+                linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url("kavyahotel.png");
+            
+            /* TODO: Yaha apne hotel ki About page wali image ka path dale */
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            height: 650px;
+            width: 100%;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .about-hero p {
+            font-size: 17px;
+        }
+
+        /* ================= OUR STORY ================= */
+
+        .story {
+            padding: 90px 8%;
+        }
+
+        .story-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .story-content span {
+            color: #b18a4a;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin: 12px 0 20px;
+        }
+
+        .story-content p {
+            color: #666;
+            margin-bottom: 18px;
+        }
+
+        /* ================= MISSION ================= */
+
+        .mission {
+            background: #222;
+            color: white;
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .mission span {
+            color: #b18a4a;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .mission h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin: 15px 0;
+        }
+
+        .mission p {
+            max-width: 800px;
+            margin: auto;
+            color: #ddd;
+        }
+
+        /* ================= WHY CHOOSE US ================= */
+
+        .why-us {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .why-us span {
+            color: #b18a4a;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .why-us h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin: 12px 0 50px;
+        }
+
+        .features {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* ================= FACILITIES ================= */
+
+        .facilities {
+            padding: 80px 8%;
+            background: white;
+        }
+
+        .facilities-container {
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .facilities span {
+            color: #b18a4a;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .facilities h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin: 12px 0 40px;
+        }
+
+        .facility-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .facility {
+            padding: 20px;
+            border: 1px solid #eee;
+            font-weight: 500;
+            background: #f8f7f4;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 90px 8%;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url("images/hotel-cta.jpg");
+
+            /* TODO: Yaha apne hotel ki CTA/background image ka path dale */
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 13px 30px;
+            background: #b18a4a;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #947137;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #181818;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .facility-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .about-hero h1 {
+                font-size: 40px;
+            }
+
+            .story-content h2,
+            .mission h2,
+            .why-us h2,
+            .facilities h2,
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .features,
+            .facility-list {
+                grid-template-columns: 1fr;
+            }
+
+            .story-image img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <!-- TODO: Yaha apne hotel ka naam/logo likhe -->
+        <div class="logo">KAVYA RESIDENCY</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+
+            <!-- TODO: Agar rooms.html page banaye to link change kare -->
+            <li><a href="rooms.html">Rooms</a></li>
+
+            <!-- TODO: Agar dining.html page banaye to link change kare -->
+            <li><a href="dining.html">Dining</a></li>
+
+            <!-- TODO: Agar gallery.html page banaye to link change kare -->
+            <li><a href="gallery.html">Gallery</a></li>
+
+            <!-- TODO: Agar contact.html page banaye to link change kare -->
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= ABOUT HERO ================= -->
+
+    <section class="about-hero">
+
+        <div>
+            <h1>About Us</h1>
+
+            <!-- TODO: Is line me apne hotel ke according short tagline likhe -->
+            <p>Where comfort meets exceptional hospitality</p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= OUR STORY ================= -->
+
+    <section class="story">
+
+        <div class="story-container">
+
+            <div class="story-image">
+
+                <!-- TODO: Yaha apne hotel ki actual image ka path dale -->x
+                <img src="kavyahotel.png"  alt="Our Hotel: height: 650px;weight: 550%;  border-radius: 0px;">
+
+            </div>
+
+
+            <div class="story-content">
+
+                <span>OUR STORY</span>
+
+                <!-- TODO: Yaha apne hotel ka heading likhe -->
+                <h2>Welcome to KAVYA RESIDENCY</h2>
+
+                <!-- TODO: Yaha apne hotel ke baare me information likhe -->
+                <p>
+                    Welcome to KAVYA RESIDENCY, a place where comfort,
+                    elegance and warm hospitality come together.
+                    We are committed to making every guest feel
+                    comfortable and special during their stay.
+                </p>
+
+                <!-- TODO: Yaha apne hotel ki story/details likhe -->
+                <p>
+                    Our hotel offers comfortable rooms, delicious
+                    food and excellent service. Whether you are
+                    travelling for business or enjoying a vacation,
+                    we are here to make your stay memorable.
+                </p>
+
+                <!-- TODO: Yaha hotel ki establishment/year ki information add kare -->
+                <p>
+                    Since our beginning, our goal has been simple:
+                    to provide a peaceful stay with quality service
+                    and genuine hospitality.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= OUR MISSION ================= -->
+
+    <section class="mission">
+
+        <span>OUR MISSION</span>
+
+        <!-- TODO: Yaha apne hotel ki mission heading change kare -->
+        <h2>Making Every Stay Special</h2>
+
+        <!-- TODO: Yaha apne hotel ki mission statement likhe -->
+        <p>
+            Our mission is to provide our guests with a comfortable,
+            safe and memorable stay. We focus on quality, cleanliness,
+            friendly service and guest satisfaction.
+        </p>
+
+    </section>
+
+
+    <!-- ================= WHY CHOOSE US ================= -->
+
+    <section class="why-us">
+
+        <span>WHY CHOOSE US</span>
+
+        <h2>Why Stay With Us?</h2>
+
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="feature-icon">🛏️</div>
+                <h3>Comfortable Rooms</h3>
+
+                <!-- TODO: Apne rooms ke according description change kare -->
+                <p>
+                    Clean, comfortable and beautifully designed rooms
+                    for a relaxing stay.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">😊</div>
+                <h3>Friendly Service</h3>
+
+                <!-- TODO: Apni service ke according description change kare -->
+                <p>
+                    Our friendly staff is always ready to help
+                    and make your stay comfortable.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">🍽️</div>
+                <h3>Delicious Food</h3>
+
+                <!-- TODO: Apne restaurant/food ke according description change kare -->
+                <p>
+                    Enjoy delicious meals prepared with quality
+                    ingredients and great care.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>Best Experience</h3>
+
+                <!-- TODO: Hotel ki special quality yaha likhe -->
+                <p>
+                    We work hard to give every guest a memorable
+                    and enjoyable experience.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FACILITIES ================= -->
+
+    <section class="facilities">
+
+        <div class="facilities-container">
+
+            <span>OUR FACILITIES</span>
+
+            <h2>Everything You Need</h2>
+
+
+            <div class="facility-list">
+
+                <!-- TODO: Sirf wahi facilities rakhe jo tumhare hotel me available hain -->
+
+                <div class="facility">📶 Free Wi-Fi</div>
+
+                <div class="facility">🚗 Free Parking</div>
+
+                <div class="facility">🍽️ Restaurant</div>
+
+                <div class="facility">🛎️ Room Service</div>
+
+                <div class="facility">❄️ Air Conditioning</div>
+
+                <div class="facility">🧹 Daily Housekeeping</div>
+
+                <div class="facility">📺 Smart TV</div>
+
+                <div class="facility">🛡️ 24/7 Security</div>
+
+                <div class="facility">☎️ 24/7 Support</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <!-- TODO: Yaha apne hotel ke according heading change kare -->
+        <h2>Ready for a Comfortable Stay?</h2>
+
+        <!-- TODO: Yaha apne hotel ke according text change kare -->
+        <p>
+            Book your stay with us and experience warm hospitality.
+        </p>
+
+
+        <!-- TODO: Booking page ka actual link yaha dale -->
+        <a href="booking.html" class="cta-btn">
+            Book Your Stay
+        </a>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <!-- TODO: Yaha apne hotel ka naam dale -->
+        <h3>KAVYA RESIDENCY</h3>
+
+        <!-- TODO: Yaha apna copyright/year change kare -->
+        <p>© 2026 KAVYA RESIDENCY. All Rights Reserved.</p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+            link.addEventListener('click', function(e) {
+
+                const target = document.querySelector(this.getAttribute('href'));
+
+                if (target) {
+                    e.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+            });
+
+        });
+
+
+        // TODO:
+        // Future me yaha animation, booking functionality,
+        // form validation ya other JavaScript features add kar sakte hain.
+
+    </script>
+
+</body>
+</html>

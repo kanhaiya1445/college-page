@@ -1,0 +1,582 @@
+<!-- =====================================================
+     HOTEL BOOKING FORM
+===================================================== -->
+
+<section class="booking-section" id="booking">
+
+    <div class="booking-heading">
+        <span>RESERVATION</span>
+        <h2>Book Your Stay</h2>
+
+        <!-- TODO: Yaha apne hotel ke according description change kare -->
+        <p>
+            Fill in the details below to reserve your comfortable stay with us.
+        </p>
+    </div>
+
+
+    <div class="booking-container">
+
+        <form id="bookingForm">
+
+
+            <!-- ================= GUEST DETAILS ================= -->
+
+            <h3 class="form-title">Guest Details</h3>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+
+                    <!-- TODO: Agar field ka naam change karna ho to yaha change kare -->
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+
+                    <!-- TODO: Apne country ke according phone format change kare -->
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="+91 XXXXXXXXXX"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="country">Country</label>
+
+                    <input
+                        type="text"
+                        id="country"
+                        name="country"
+                        placeholder="Enter your country"
+                    >
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= STAY DETAILS ================= -->
+
+            <h3 class="form-title">Stay Details</h3>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="checkIn">Check-In Date</label>
+
+                    <input
+                        type="date"
+                        id="checkIn"
+                        name="checkIn"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="checkOut">Check-Out Date</label>
+
+                    <input
+                        type="date"
+                        id="checkOut"
+                        name="checkOut"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="roomType">Room Type</label>
+
+                    <select id="roomType" name="roomType" required>
+
+                        <option value="">Select Room</option>
+
+                        <!-- TODO: Yaha apne actual room types aur prices ke according options change kare -->
+
+                        <option value="deluxe">
+                            Deluxe Room
+                        </option>
+
+                        <option value="executive">
+                            Executive Room
+                        </option>
+
+                        <option value="suite">
+                            Luxury Suite
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+
+                    <select id="guests" name="guests" required>
+
+                        <option value="">Select Guests</option>
+
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="1">7 Guests</option>
+                        <option value="2">8 Guests</option>
+                        <option value="3">9 Guests</option>
+                        <option value="4">10 Guests</option>
+                        <option value="5">11 Guests</option>
+                        <option value="6">12 Guests</option>
+
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= SPECIAL REQUEST ================= -->
+
+            <div class="form-group full-width">
+
+                <label for="message">
+                    Special Request
+                </label>
+
+                <!-- TODO: Guest ke special requests yaha receive honge -->
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Any special request? (Optional)"
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- ================= TERMS ================= -->
+
+            <div class="terms">
+
+                <input
+                    type="checkbox"
+                    id="terms"
+                    required
+                >
+
+                <label for="terms">
+                    I agree to the hotel booking terms and conditions.
+                </label>
+
+            </div>
+
+
+
+            <!-- ================= BOOKING BUTTON ================= -->
+
+            <button type="submit" class="booking-btn">
+                Confirm Booking
+            </button>
+
+
+            <!-- Booking message -->
+
+            <div id="bookingMessage"></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<style>
+
+/* =====================================================
+   BOOKING SECTION
+===================================================== */
+
+.booking-section {
+    padding: 100px 7%;
+    background: #f8f7f4;
+}
+
+
+/* ================= HEADING ================= */
+
+.booking-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.booking-heading span {
+    color: #b18a4a;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.booking-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    margin: 10px 0 15px;
+}
+
+.booking-heading p {
+    color: #777;
+    font-size: 15px;
+}
+
+
+
+/* ================= FORM CONTAINER ================= */
+
+.booking-container {
+    max-width: 950px;
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+
+    border-top: 3px solid #b18a4a;
+}
+
+
+
+/* ================= FORM TITLE ================= */
+
+.form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+
+    margin: 10px 0 25px;
+
+    color: #222;
+
+    border-bottom: 1px solid #eee;
+
+    padding-bottom: 12px;
+}
+
+
+
+/* ================= FORM ROW ================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 22px;
+}
+
+
+
+/* ================= FORM GROUP ================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+    color: #333;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #ddd;
+
+    background: #fff;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #b18a4a;
+
+    box-shadow: 0 0 0 2px rgba(177,138,74,0.08);
+}
+
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+
+/* ================= FULL WIDTH ================= */
+
+.full-width {
+    margin-bottom: 25px;
+}
+
+
+
+/* ================= TERMS ================= */
+
+.terms {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.terms input {
+    width: 16px;
+    height: 16px;
+
+    accent-color: #b18a4a;
+}
+
+.terms label {
+    font-size: 12px;
+    color: #666;
+}
+
+
+
+/* ================= BOOKING BUTTON ================= */
+
+.booking-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    background: #b18a4a;
+
+    color: white;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.booking-btn:hover {
+    background: #947137;
+}
+
+
+
+/* ================= SUCCESS MESSAGE ================= */
+
+#bookingMessage {
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+    .booking-section {
+        padding: 70px 5%;
+    }
+
+    .booking-container {
+        padding: 30px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .booking-heading h2 {
+        font-size: 36px;
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+/* =====================================================
+   BOOKING FORM JAVASCRIPT
+===================================================== */
+
+const bookingForm = document.getElementById("bookingForm");
+
+bookingForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const fullName = document.getElementById("fullName").value;
+    const checkIn = document.getElementById("checkIn").value;
+    const checkOut = document.getElementById("checkOut").value;
+    const roomType = document.getElementById("roomType").value;
+    const guests = document.getElementById("guests").value;
+
+    const message = document.getElementById("bookingMessage");
+
+
+    /* Check-out should be after check-in */
+
+    if (checkOut <= checkIn) {
+
+        message.style.color = "red";
+
+        message.innerHTML =
+            "Please select a valid check-out date.";
+
+        return;
+    }
+
+
+    /* Temporary booking confirmation */
+
+    message.style.color = "green";
+
+    message.innerHTML =
+        "Thank you, " +
+        fullName +
+        "! Your booking request has been received.";
+
+
+    /*
+        TODO:
+        Yaha future me actual booking system connect kare.
+
+        Example:
+        - Database
+        - Backend
+        - Email confirmation
+        - Payment gateway
+        - Room availability check
+    */
+
+
+    console.log("Booking Details:");
+    console.log("Name:", fullName);
+    console.log("Check-In:", checkIn);
+    console.log("Check-Out:", checkOut);
+    console.log("Room:", roomType);
+    console.log("Guests:", guests);
+
+});
+
+
+
+/* =====================================================
+   SET MINIMUM CHECK-IN DATE
+===================================================== */
+
+const today = new Date().toISOString().split("T")[0];
+
+document.getElementById("checkIn").min = today;
+
+document.getElementById("checkOut").min = today;
+
+
+
+/* =====================================================
+   CHECK-OUT DATE UPDATE
+===================================================== */
+
+document.getElementById("checkIn").addEventListener(
+    "change",
+    function() {
+
+        document.getElementById("checkOut").min = this.value;
+
+    }
+);
+
+</script>

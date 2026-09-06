@@ -1,0 +1,297 @@
+<!-- =====================================================
+     ABOUT US SECTION
+====================================================== -->
+
+<section class="about-section" id="about">
+
+    <div class="about-container">
+
+        <!-- LEFT SIDE : IMAGE -->
+        <div class="about-image">
+
+            <img src="kavyalogo.png" alt="Hotel Logo" style="width: 15%; height: 15%; object-fit: cover; border-radius: 15px; position: absolute; top: 50px; left:50px; " > </img>
+            <!-- TODO: Yaha hotel ki actual image lagani hai -->
+            <img
+                src="kavyahotel.png"
+                alt="Hotel"></img>
+        </div>
+
+
+        <!-- RIGHT SIDE : CONTENT -->
+        <div class="about-content">
+
+            <p class="about-label">
+                About Us
+            </p>
+
+            <!-- TODO: Yaha hotel ka actual naam change karna hai -->
+            <h2>
+                Welcome to KAVYA RESIDENCY
+            </h2>
+
+            <p>
+                Welcome to KAVYA RESIDENCY, where comfort, quality and
+                warm hospitality come together to create a memorable
+                stay for every guest.
+            </p>
+
+            <p>
+                Our hotel is designed to give you a peaceful and
+                comfortable experience. From our well-designed rooms
+                to our friendly service, we take care of every small
+                detail to make your stay special.
+            </p>
+
+            <p>
+                Whether you are travelling with family, visiting for
+                business or enjoying a holiday, we are always happy
+                to welcome you.
+            </p>
+
+
+            <!-- HOTEL FEATURES -->
+
+            <div class="about-features">
+
+                <div class="about-feature">
+                    <span>✓</span>
+                    Comfortable Rooms
+                </div>
+
+                <div class="about-feature">
+                    <span>✓</span>
+                    Friendly Service
+                </div>
+
+                <div class="about-feature">
+                    <span>✓</span>
+                    Delicious Food
+                </div>
+
+                <div class="about-feature">
+                    <span>✓</span>
+                    24/7 Support
+                </div>
+
+            </div>
+
+
+            <!-- TODO: About page banne ke baad iska link change karna hai -->
+            <a href="#" class="about-btn">
+                <a href="discover.html">Discover More</a>
+                
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT US CSS
+====================================================== -->
+
+<style>
+
+.about-section {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* ================================
+   IMAGE
+================================ */
+
+.about-image {
+    height: 520px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ================================
+   CONTENT
+================================ */
+
+.about-content {
+    max-width: 560px;
+}
+
+.about-label {
+    color: #b18a4a;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.about-content h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 45px;
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+}
+
+.about-content p {
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    margin-bottom: 18px;
+}
+
+
+/* ================================
+   FEATURES
+================================ */
+
+.about-features {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin: 30px 0;
+}
+
+.about-feature {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+.about-feature span {
+    color: #b18a4a;
+
+    font-weight: 700;
+
+    margin-right: 8px;
+}
+
+
+/* ================================
+   BUTTON
+================================ */
+
+.about-btn {
+    display: inline-block;
+
+    padding: 14px 28px;
+
+    background: #222;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.about-btn:hover {
+    background: #b18a4a;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .about-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .about-section {
+        padding: 60px 0;
+    }
+
+    .about-image {
+        height: 350px;
+    }
+
+    .about-content h2 {
+        font-size: 34px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+
+<!-- =====================================================
+     ABOUT US JAVASCRIPT
+====================================================== -->
+
+<script>
+
+    /*
+        TODO:
+
+        Future me About section ke liye:
+
+        - Scroll animation
+        - Read More button
+        - Counter animation
+
+        add kar sakte hain.
+    */
+
+</script>

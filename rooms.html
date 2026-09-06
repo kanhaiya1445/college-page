@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rooms | Kavya Residency</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+            background: #f8f7f4;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #b18a4a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #b18a4a;
+        }
+
+        .book-btn {
+            background: #b18a4a;
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 4px;
+        }
+
+        .book-btn:hover {
+            background: #967237;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .rooms-hero {
+            height: 55vh;
+            min-height: 400px;
+
+            /* TODO: Rooms hero image yaha change kare */
+            background:
+                linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)),
+                url("https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 58px;
+            margin-bottom: 12px;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           COMMON SECTION
+        ========================== */
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading span {
+            color: #b18a4a;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: auto;
+            color: #666;
+        }
+
+
+        /* =========================
+           ROOMS GRID
+        ========================== */
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.35s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.14);
+        }
+
+        .room-image {
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.06);
+        }
+
+        .room-content {
+            padding: 25px;
+        }
+
+        .room-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .room-content p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           ROOM INFO
+        ========================== */
+
+        .room-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            width: calc(50% - 5px);
+            font-size: 13px;
+            color: #555;
+        }
+
+        .info-item strong {
+            color: #222;
+        }
+
+
+        /* =========================
+           FACILITIES
+        ========================== */
+
+        .facilities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .facility {
+            background: #f4f1ea;
+            color: #555;
+            padding: 6px 10px;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           PRICE
+        ========================== */
+
+        .room-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price {
+            color: #b18a4a;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .price small {
+            color: #777;
+            font-size: 11px;
+            font-weight: 400;
+        }
+
+        .details-btn {
+            border: 1px solid #b18a4a;
+            color: #b18a4a;
+            background: transparent;
+            padding: 9px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .details-btn:hover {
+            background: #b18a4a;
+            color: white;
+        }
+
+
+        /* =========================
+           ROOM DETAILS MODAL
+        ========================== */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .modal-box {
+            background: white;
+            width: 700px;
+            max-width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            padding: 35px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .close:hover {
+            color: #b18a4a;
+        }
+
+        .modal-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .modal-box p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .modal-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .modal-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-list li::before {
+            content: "✓";
+            color: #b18a4a;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .modal-price {
+            color: #b18a4a;
+            font-size: 25px;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .modal-book-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #b18a4a;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .modal-book-btn:hover {
+            background: #967237;
+        }
+
+
+        /* =========================
+           GALLERY
+        ========================== */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 220px;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            padding: 90px 7%;
+            text-align: center;
+            color: white;
+
+            /* TODO: CTA background image change kare */
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+            color: #eee;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #b18a4a;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background: #967237;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 50px 7% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 35px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .footer-col a {
+            display: block;
+            text-decoration: none;
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #b18a4a;
+        }
+
+        .copyright {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 1000px) {
+
+            .rooms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta h2 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <!-- TODO: Hotel name/logo yaha change kare -->
+        <a href="index.html" class="logo">Kavya Residency</a>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="rooms.html">Rooms</a>
+            <a href="dining.html">Dining</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+
+            <a href="booking.html" class="book-btn">
+                Book Now
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         ROOMS HERO
+    ========================== -->
+
+    <section class="rooms-hero">
+
+        <div class="hero-content">
+
+            <h1>Our Rooms</h1>
+
+            <p>
+                Comfort, elegance and a peaceful stay
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ROOMS SECTION
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span>Stay With Us</span>
+
+            <h2>Choose Your Perfect Room</h2>
+
+            <p>
+                Discover beautifully designed rooms and suites
+                created to make your stay comfortable and memorable.
+            </p>
+
+        </div>
+
+
+        <div class="rooms-grid">
+
+
+            <!-- =====================
+                 DELUXE ROOM
+            ====================== -->
+
+            <div class="room-card">
+
+                <div class="room-image">
+
+                    <!-- TODO: Deluxe Room image yaha change kare -->
+                    <img
+                        src="deluxeroom.avif"
+                        alt="Deluxe Room">
+
+                </div>
+
+                <div class="room-content">
+
+                    <h3>Deluxe Room</h3>
+
+                    <p>
+                        A comfortable and elegant room perfect for
+                        couples and business travellers.
+                    </p>
+
+
+                    <div class="room-info">
+
+                        <div class="info-item">
+                            <strong>Size:</strong> 350 sq.ft.
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Guests:</strong> 2
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Bed:</strong> King Bed
+                        </div>
+
+                        <div class="info-item">
+                            <strong>View:</strong> City View
+                        </div>
+
+                    </div>
+
+
+                    <div class="facilities">
+
+                        <span class="facility">Free Wi-Fi</span>
+                        <span class="facility">AC</span>
+                        <span class="facility">Smart TV</span>
+                        <span class="facility">Breakfast</span>
+
+                    </div>
+
+
+                    <div class="room-bottom">
+
+                        <div class="price">
+                            ₹5,000 <small>/ night</small>
+                        </div>
+
+                        <button
+                            class="details-btn"
+                            onclick="openRoom('deluxe')">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 EXECUTIVE ROOM
+            ====================== -->
+
+            <div class="room-card">
+
+                <div class="room-image">
+
+                    <!-- TODO: Executive Room image yaha change kare -->
+                    <img
+                        src="executiveroom.avif"
+                        alt="Executive Room">
+
+                </div>
+
+                <div class="room-content">
+
+                    <h3>Executive Room</h3>
+
+                    <p>
+                        Spacious accommodation with premium
+                        facilities for a relaxing business or leisure stay.
+                    </p>
+
+
+                    <div class="room-info">
+
+                        <div class="info-item">
+                            <strong>Size:</strong> 450 sq.ft.
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Guests:</strong> 3
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Bed:</strong> King Bed
+                        </div>
+
+                        <div class="info-item">
+                            <strong>View:</strong> Garden View
+                        </div>
+
+                    </div>
+
+
+                    <div class="facilities">
+
+                        <span class="facility">Free Wi-Fi</span>
+                        <span class="facility">AC</span>
+                        <span class="facility">Smart TV</span>
+                        <span class="facility">Mini Bar</span>
+
+                    </div>
+
+
+                    <div class="room-bottom">
+
+                        <div class="price">
+                            ₹7,000 <small>/ night</small>
+                        </div>
+
+                        <button
+                            class="details-btn"
+                            onclick="openRoom('executive')">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 LUXURY SUITE
+            ====================== -->
+
+            <div class="room-card">
+
+                <div class="room-image">
+
+                    <!-- TODO: Luxury Suite image yaha change kare -->
+                    <img
+                        src="luxury1.avif"
+                        alt="Luxury Suite">
+
+                </div>
+
+                <div class="room-content">
+
+                    <h3>Luxury Suite</h3>
+
+                    <p>
+                        Experience premium luxury with a spacious
+                        bedroom, elegant interiors and exclusive facilities.
+                    </p>
+
+
+                    <div class="room-info">
+
+                        <div class="info-item">
+                            <strong>Size:</strong> 650 sq.ft.
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Guests:</strong> 4
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Bed:</strong> King Bed
+                        </div>
+
+                        <div class="info-item">
+                            <strong>View:</strong> Premium View
+                        </div>
+
+                    </div>
+
+
+                    <div class="facilities">
+
+                        <span class="facility">Free Wi-Fi</span>
+                        <span class="facility">AC</span>
+                        <span class="facility">Smart TV</span>
+                        <span class="facility">Mini Bar</span>
+
+                    </div>
+
+
+                    <div class="room-bottom">
+
+                        <div class="price">
+                            ₹10,000 <small>/ night</small>
+                        </div>
+
+                        <button
+                            class="details-btn"
+                            onclick="openRoom('suite')">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ROOM DETAILS MODAL
+    ========================== -->
+
+    <div class="modal" id="roomModal">
+
+        <div class="modal-box">
+
+            <span class="close" onclick="closeRoom()">&times;</span>
+
+            <h2 id="modalTitle">Room</h2>
+
+            <p id="modalDescription">
+                Room description
+            </p>
+
+
+            <ul class="modal-list" id="modalFeatures">
+            </ul>
+
+
+            <div class="modal-price" id="modalPrice">
+                ₹0 / night
+            </div>
+
+
+            <!-- TODO: Booking page ka path change kare agar booking page ka naam alag ho -->
+            <a href="booking.html" class="modal-book-btn">
+                Book This Room
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         ROOM GALLERY
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span>Explore</span>
+
+            <h2>Room Gallery</h2>
+
+            <p>
+                Take a look at the comfort and elegance
+                waiting for you at Kavya Residency.
+            </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+
+                <!-- TODO: Gallery image 1 change kare -->
+                <img
+                    src="kavyahotel.png"
+                    alt="Hotel Room">
+
+            </div>
+
+            <div class="gallery-item">
+
+                <!-- TODO: Gallery image 2 change kare -->
+                <img
+                    src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80"
+                    alt="Hotel Bedroom">
+
+            </div>
+
+            <div class="gallery-item">
+
+                <!-- TODO: Gallery image 3 change kare -->
+                <img
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+                    alt="Luxury Interior">
+
+            </div>
+
+            <div class="gallery-item">
+
+                <!-- TODO: Gallery image 4 change kare -->
+                <img
+                    src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
+                    alt="Hotel Interior">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BOOKING CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <h2>Find Your Perfect Room</h2>
+
+        <p>
+            Make your stay special with comfort, luxury and warm hospitality.
+        </p>
+
+        <!-- TODO: Booking page ka path change kare -->
+        <a href="booking.html" class="cta-btn">
+            Book Your Stay
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div class="footer-col">
+
+                <!-- TODO: Hotel name change kare -->
+                <h3>Kavya Residency</h3>
+
+                <p>
+                    Experience comfort, elegance and warm hospitality
+                    in a place that feels like home.
+                </p>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>Quick Links</h4>
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="rooms.html">Rooms</a>
+                <a href="contact.html">Contact</a>
+                <a href="booking.html">Booking</a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>Contact</h4>
+
+                <!-- TODO: Phone number change kare -->
+                <a href="tel:+91-9122580242">
+                    +91 91225 80242
+                </a>
+
+                <!-- TODO: Email change kare -->
+                <a href="mailto:info@kavyaresidency.com">
+                    info@kavyaresidency.com
+                </a>
+
+                <!-- TODO: Address change kare -->
+                <p>
+                    Bettiah, West Champaran, Bihar
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <!-- TODO: Hotel name change kare -->
+            © 2026 Kavya Residency. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+            Room details data
+            TODO:
+            Yaha room ka description, facilities,
+            price etc. future me easily change kar sakte ho.
+        */
+
+        const rooms = {
+
+            deluxe: {
+
+                title: "Deluxe Room",
+
+                description:
+                    "A comfortable and elegant room designed for couples and business travellers. Enjoy a peaceful stay with modern facilities.",
+
+                price: "₹5,000 / night",
+
+                features: [
+                    "350 sq.ft. spacious room",
+                    "King size bed",
+                    "Maximum 2 guests",
+                    "City view",
+                    "Free high-speed Wi-Fi",
+                    "Air conditioning",
+                    "Smart TV",
+                    "Complimentary breakfast",
+                    "Modern private bathroom"
+                ]
+
+            },
+
+
+            executive: {
+
+                title: "Executive Room",
+
+                description:
+                    "A spacious premium room offering extra comfort and modern facilities for business and leisure travellers.",
+
+                price: "₹7,000 / night",
+
+                features: [
+                    "450 sq.ft. spacious room",
+                    "King size bed",
+                    "Maximum 3 guests",
+                    "Garden view",
+                    "Free high-speed Wi-Fi",
+                    "Air conditioning",
+                    "Smart TV",
+                    "Mini bar",
+                    "Complimentary breakfast",
+                    "Premium bathroom"
+                ]
+
+            },
+
+
+            suite: {
+
+                title: "Luxury Suite",
+
+                description:
+                    "Our most luxurious accommodation with elegant interiors, spacious living areas and premium facilities.",
+
+                price: "₹10,000 / night",
+
+                features: [
+                    "650 sq.ft. luxury suite",
+                    "King size bed",
+                    "Maximum 4 guests",
+                    "Premium view",
+                    "Free high-speed Wi-Fi",
+                    "Air conditioning",
+                    "Smart TV",
+                    "Mini bar",
+                    "Luxury bathroom",
+                    "Complimentary breakfast",
+                    "Spacious sitting area"
+                ]
+
+            }
+
+        };
+
+
+        /* =========================
+           OPEN ROOM DETAILS
+        ========================== */
+
+        function openRoom(roomName) {
+
+            const room = rooms[roomName];
+
+            document.getElementById("modalTitle").textContent =
+                room.title;
+
+            document.getElementById("modalDescription").textContent =
+                room.description;
+
+            document.getElementById("modalPrice").textContent =
+                room.price;
+
+
+            const featureList =
+                document.getElementById("modalFeatures");
+
+            featureList.innerHTML = "";
+
+
+            room.features.forEach(function(feature) {
+
+                const li = document.createElement("li");
+
+                li.textContent = feature;
+
+                featureList.appendChild(li);
+
+            });
+
+
+            document.getElementById("roomModal").style.display =
+                "flex";
+
+        }
+
+
+        /* =========================
+           CLOSE ROOM DETAILS
+        ========================== */
+
+        function closeRoom() {
+
+            document.getElementById("roomModal").style.display =
+                "none";
+
+        }
+
+
+        /* =========================
+           CLOSE MODAL OUTSIDE BOX
+        ========================== */
+
+        window.onclick = function(event) {
+
+            const modal =
+                document.getElementById("roomModal");
+
+            if (event.target === modal) {
+
+                closeRoom();
+
+            }
+
+        };
+
+    </script>
+
+</body>
+</html>
