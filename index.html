@@ -525,6 +525,94 @@
     </style>
 
 
+   <style>/* ================= MOBILE MENU ================= */
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    padding: 10px 0;
+    z-index: 9998;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 13px 24px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-menu a:hover {
+    color: #b18a4a;
+    background: #f8f7f4;
+}
+
+.mobile-more-btn {
+    width: 100%;
+    border: none;
+    background: #fff;
+    text-align: left;
+    padding: 13px 24px;
+    color: #333;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.mobile-more-btn:hover {
+    color: #b18a4a;
+    background: #f8f7f4;
+}
+
+.mobile-more-content {
+    display: none;
+    background: #faf9f6;
+}
+
+.mobile-more-content a {
+    padding-left: 42px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.mobile-more.open .mobile-more-content {
+    display: block;
+}
+
+.mobile-more.open .mobile-more-btn {
+    color: #b18a4a;
+}
+
+@media (max-width: 900px) {
+
+    .navbar {
+        position: relative;
+    }
+
+    .mobile-menu.show {
+        display: block;
+    }
+
+    .dropdown {
+        display: none;
+    }
+}
+
+@media (min-width: 901px) {
+
+    .mobile-menu {
+        display: none !important;
+    }
+}
+</style>
+
 <style>
     /* ================= MORE DROPDOWN ================= */
 
@@ -617,6 +705,56 @@
     ====================================================== -->
 
     <header class="navbar">
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open mobile menu" aria-expanded="false">
+    ☰
+</button>
+
+<!-- ==================== MOBILE MENU ==================== -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="index.html">Home</a>
+
+    <a href="about.html">About Us</a>
+
+    <a href="rooms.html">Rooms</a>
+
+    <a href="dining.html">Dining</a>
+
+    <a href="gallery.html">Gallery</a>
+
+    <a href="contact.html">Contact</a>
+
+    <!-- MOBILE MORE -->
+
+    <div class="mobile-more" id="mobileMore">
+
+        <button class="mobile-more-btn" id="mobileMoreBtn">
+            More ▾
+        </button>
+
+        <div class="mobile-more-content">
+
+            <a href="facilities.html">Facilities</a>
+
+            <a href="offers.html">Offers</a>
+
+            <a href="reviews.html">Reviews</a>
+
+            <a href="faq.html">FAQ</a>
+
+            <a href="availability.html">Availability</a>
+
+            <a href="policies.html">Policies</a>
+
+        </div>
+
+    </div>
+
+    <a href="booking.html">Book Now</a>
+
+</div>
 
         <div class="container navbar-container">
 
@@ -1185,11 +1323,56 @@
 
         const menuBtn = document.getElementById("menuBtn");
 
-        menuBtn.addEventListener("click", function () {
+const mobileMenu = document.getElementById("mobileMenu");
 
-            alert("Mobile menu yaha add hoga.");
+const mobileMore = document.getElementById("mobileMore");
 
-        });
+const mobileMoreBtn = document.getElementById("mobileMoreBtn");
+
+
+// ================= MOBILE MENU OPEN / CLOSE =================
+
+menuBtn.addEventListener("click", function () {
+
+    const isOpen = mobileMenu.classList.toggle("show");
+
+    menuBtn.setAttribute("aria-expanded", isOpen);
+
+    // Menu close hone par More bhi close ho jayega
+
+    if (!isOpen) {
+
+        mobileMore.classList.remove("open");
+
+    }
+
+});
+
+
+// ================= MOBILE MORE DROPDOWN =================
+
+mobileMoreBtn.addEventListener("click", function () {
+
+    mobileMore.classList.toggle("open");
+
+});
+
+
+// ================= LINK CLICK KE BAAD MENU CLOSE =================
+
+mobileMenu.querySelectorAll("a").forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        mobileMenu.classList.remove("show");
+
+        mobileMore.classList.remove("open");
+
+        menuBtn.setAttribute("aria-expanded", "false");
+
+    });
+
+});
 
 
         // =====================================================
