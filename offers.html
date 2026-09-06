@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TODO: Hotel name yaha change kare -->
+    <title>Special Offers | Kavya Residency</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f8f7f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: #fff;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .logo {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            color: #b18a4a;
+
+            text-decoration: none;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: #222;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #b18a4a;
+
+        }
+
+
+        .book-btn {
+
+            background: #b18a4a;
+
+            color: white !important;
+
+            padding: 11px 20px;
+
+            border-radius: 4px;
+
+        }
+
+
+        .book-btn:hover {
+
+            background: #967237;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .offers-hero {
+
+            height: 55vh;
+
+            min-height: 400px;
+
+            /* TODO: Offers hero image change kare */
+
+            background:
+
+                linear-gradient(
+                    rgba(0, 0, 0, 0.58),
+                    rgba(0, 0, 0, 0.58)
+                ),
+
+                url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+        }
+
+
+        .hero-content h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 58px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .hero-content p {
+
+            font-size: 17px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* =========================
+           COMMON SECTION
+        ========================== */
+
+        .section {
+
+            padding: 80px 7%;
+
+        }
+
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .section-heading span {
+
+            color: #b18a4a;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 42px;
+
+            margin: 10px 0;
+
+        }
+
+
+        .section-heading p {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #666;
+
+        }
+
+
+        /* =========================
+           OFFERS GRID
+        ========================== */
+
+        .offers-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .offer-card {
+
+            background: white;
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+            transition: 0.3s;
+
+            position: relative;
+
+        }
+
+
+        .offer-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+
+        }
+
+
+        .offer-image {
+
+            height: 230px;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .offer-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+
+        }
+
+
+        .offer-card:hover .offer-image img {
+
+            transform: scale(1.07);
+
+        }
+
+
+        /* =========================
+           DISCOUNT BADGE
+        ========================== */
+
+        .discount {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            background: #b18a4a;
+
+            color: white;
+
+            padding: 8px 13px;
+
+            border-radius: 4px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        .offer-content {
+
+            padding: 25px;
+
+        }
+
+
+        .offer-content h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .offer-content p {
+
+            color: #666;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .offer-list {
+
+            list-style: none;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .offer-list li {
+
+            font-size: 13px;
+
+            color: #555;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .offer-list li::before {
+
+            content: "✓";
+
+            color: #b18a4a;
+
+            font-weight: bold;
+
+            margin-right: 8px;
+
+        }
+
+
+        .offer-price {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 15px;
+
+            padding-top: 15px;
+
+            border-top: 1px solid #eee;
+
+        }
+
+
+        .price {
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            color: #b18a4a;
+
+        }
+
+
+        .price span {
+
+            font-size: 11px;
+
+            color: #888;
+
+            font-weight: 400;
+
+        }
+
+
+        .offer-btn {
+
+            background: #222;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 16px;
+
+            border-radius: 4px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+        }
+
+
+        .offer-btn:hover {
+
+            background: #b18a4a;
+
+        }
+
+
+        /* =========================
+           FEATURED OFFER
+        ========================== */
+
+        .featured-offer {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            background: #222;
+
+            color: white;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+        }
+
+
+        .featured-image {
+
+            min-height: 450px;
+
+        }
+
+
+        .featured-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        .featured-content {
+
+            padding: 55px 45px;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+        }
+
+
+        .featured-content span {
+
+            color: #b18a4a;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .featured-content h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 40px;
+
+            margin: 12px 0 15px;
+
+        }
+
+
+        .featured-content p {
+
+            color: #ccc;
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .featured-list {
+
+            list-style: none;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .featured-list li {
+
+            margin-bottom: 10px;
+
+            color: #ddd;
+
+            font-size: 14px;
+
+        }
+
+
+        .featured-list li::before {
+
+            content: "✦";
+
+            color: #b18a4a;
+
+            margin-right: 10px;
+
+        }
+
+
+        .featured-btn {
+
+            display: inline-block;
+
+            width: fit-content;
+
+            background: #b18a4a;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 25px;
+
+            border-radius: 4px;
+
+            font-weight: 600;
+
+            font-size: 13px;
+
+        }
+
+
+        .featured-btn:hover {
+
+            background: #967237;
+
+        }
+
+
+        /* =========================
+           OFFER INFORMATION
+        ========================== */
+
+        .info-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .info-card {
+
+            background: white;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+
+        }
+
+
+        .info-icon {
+
+            font-size: 32px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .info-card h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 22px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .info-card p {
+
+            font-size: 13px;
+
+            color: #777;
+
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+
+            padding: 90px 7%;
+
+            text-align: center;
+
+            color: white;
+
+
+            /* TODO: CTA background image change kare */
+
+            background:
+
+                linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.65)
+                ),
+
+                url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+
+        .cta h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 42px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .cta p {
+
+            color: #eee;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .cta-btn {
+
+            display: inline-block;
+
+            background: #b18a4a;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 28px;
+
+            border-radius: 4px;
+
+            font-weight: 600;
+
+        }
+
+
+        .cta-btn:hover {
+
+            background: #967237;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            background: #222;
+
+            color: #ccc;
+
+            padding: 50px 7% 20px;
+
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr;
+
+            gap: 50px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .footer-col h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: white;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .footer-col h4 {
+
+            color: white;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .footer-col p {
+
+            font-size: 14px;
+
+            color: #aaa;
+
+        }
+
+
+        .footer-col a {
+
+            display: block;
+
+            text-decoration: none;
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .footer-col a:hover {
+
+            color: #b18a4a;
+
+        }
+
+
+        .copyright {
+
+            border-top: 1px solid #444;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #888;
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 1000px) {
+
+            .offers-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .featured-offer {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .featured-image {
+
+                min-height: 350px;
+
+            }
+
+
+            .info-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 42px;
+
+            }
+
+
+            .section {
+
+                padding: 60px 5%;
+
+            }
+
+
+            .section-heading h2 {
+
+                font-size: 34px;
+
+            }
+
+
+            .offers-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .info-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .featured-content {
+
+                padding: 40px 25px;
+
+            }
+
+
+            .featured-content h2 {
+
+                font-size: 32px;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+
+            }
+
+
+            .cta h2 {
+
+                font-size: 34px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+
+        <!-- TODO: Hotel name yaha change kare -->
+
+        <a href="index.html" class="logo">
+            Kavya Residency
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="policies.html">
+                policies
+            </a>
+
+            <a href="offers.html">
+                Offers
+            </a>
+
+            <a href="reviews.html">
+                Reviews
+            </a>
+
+            <a href="faq.html">
+                FAQ
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+            <!-- TODO: Booking page ka path change kare -->
+
+            <a href="booking.html" class="book-btn">
+                Book Now
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="offers-hero">
+
+        <div class="hero-content">
+
+            <h1>Special Offers</h1>
+
+            <p>
+                Enjoy more comfort, more experiences and better value
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         OFFERS
+    ========================== -->
+
+    <section class="section">
+
+
+        <div class="section-heading">
+
+            <span>Exclusive Deals</span>
+
+            <h2>Special Offers For You</h2>
+
+            <p>
+                Make your stay even more special with our carefully
+                designed packages and exclusive hotel offers.
+            </p>
+
+        </div>
+
+
+
+        <div class="offers-grid">
+
+
+            <!-- =====================
+                 OFFER 1
+            ====================== -->
+
+            <div class="offer-card">
+
+
+                <div class="offer-image">
+
+                    <!-- TODO: Couple package image change kare -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85"
+                        alt="Couple Package">
+
+                    <div class="discount">
+                        20% OFF
+                    </div>
+
+                </div>
+
+
+                <div class="offer-content">
+
+                    <h3>
+                        Couple Package
+                    </h3>
+
+                    <p>
+                        A romantic stay designed for couples
+                        looking for a relaxing getaway.
+                    </p>
+
+
+                    <ul class="offer-list">
+
+                        <li>
+                            Luxury Room
+                        </li>
+
+                        <li>
+                            Complimentary Breakfast
+                        </li>
+
+                        <li>
+                            Romantic Dinner
+                        </li>
+
+                        <li>
+                            Welcome Drinks
+                        </li>
+
+                    </ul>
+
+
+                    <div class="offer-price">
+
+                        <div class="price">
+
+                            ₹8,999
+
+                            <span>
+                                / package
+                            </span>
+
+                        </div>
+
+
+                        <!-- TODO: Booking page path change kare -->
+
+                        <a
+                            href="booking.html"
+                            class="offer-btn">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 OFFER 2
+            ====================== -->
+
+            <div class="offer-card">
+
+
+                <div class="offer-image">
+
+                    <!-- TODO: Family package image change kare -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=85"
+                        alt="Family Package">
+
+                    <div class="discount">
+                        15% OFF
+                    </div>
+
+                </div>
+
+
+                <div class="offer-content">
+
+                    <h3>
+                        Family Package
+                    </h3>
+
+                    <p>
+                        Enjoy a comfortable family vacation
+                        with extra value and convenience.
+                    </p>
+
+
+                    <ul class="offer-list">
+
+                        <li>
+                            Family Room
+                        </li>
+
+                        <li>
+                            Breakfast Included
+                        </li>
+
+                        <li>
+                            Kids Welcome Meal
+                        </li>
+
+                        <li>
+                            Free Parking
+                        </li>
+
+                    </ul>
+
+
+                    <div class="offer-price">
+
+                        <div class="price">
+
+                            ₹11,999
+
+                            <span>
+                                / package
+                            </span>
+
+                        </div>
+
+
+                        <!-- TODO: Booking page path change kare -->
+
+                        <a
+                            href="booking.html"
+                            class="offer-btn">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 OFFER 3
+            ====================== -->
+
+            <div class="offer-card">
+
+
+                <div class="offer-image">
+
+                    <!-- TODO: Weekend offer image change kare -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=85"
+                        alt="Weekend Offer">
+
+                    <div class="discount">
+                        10% OFF
+                    </div>
+
+                </div>
+
+
+                <div class="offer-content">
+
+                    <h3>
+                        Weekend Escape
+                    </h3>
+
+                    <p>
+                        Take a break from your busy schedule
+                        and enjoy a relaxing weekend.
+                    </p>
+
+
+                    <ul class="offer-list">
+
+                        <li>
+                            Two Night Stay
+                        </li>
+
+                        <li>
+                            Daily Breakfast
+                        </li>
+
+                        <li>
+                            Dinner for Two
+                        </li>
+
+                        <li>
+                            Late Check-out
+                        </li>
+
+                    </ul>
+
+
+                    <div class="offer-price">
+
+                        <div class="price">
+
+                            ₹9,999
+
+                            <span>
+                                / package
+                            </span>
+
+                        </div>
+
+
+                        <!-- TODO: Booking page path change kare -->
+
+                        <a
+                            href="booking.html"
+                            class="offer-btn">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 OFFER 4
+            ====================== -->
+
+            <div class="offer-card">
+
+
+                <div class="offer-image">
+
+                    <!-- TODO: Long stay image change kare -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=85"
+                        alt="Long Stay">
+
+                    <div class="discount">
+                        25% OFF
+                    </div>
+
+                </div>
+
+
+                <div class="offer-content">
+
+                    <h3>
+                        Long Stay Offer
+                    </h3>
+
+                    <p>
+                        Stay longer and enjoy special savings
+                        on extended hotel stays.
+                    </p>
+
+
+                    <ul class="offer-list">
+
+                        <li>
+                            Minimum 5 Nights
+                        </li>
+
+                        <li>
+                            Daily Breakfast
+                        </li>
+
+                        <li>
+                            Laundry Service
+                        </li>
+
+                        <li>
+                            Free Wi-Fi
+                        </li>
+
+                    </ul>
+
+
+                    <div class="offer-price">
+
+                        <div class="price">
+
+                            25% OFF
+
+                            <span>
+                                / stay
+                            </span>
+
+                        </div>
+
+
+                        <!-- TODO: Booking page path change kare -->
+
+                        <a
+                            href="booking.html"
+                            class="offer-btn">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 OFFER 5
+            ====================== -->
+
+            <div class="offer-card">
+
+
+                <div class="offer-image">
+
+                    <!-- TODO: Early booking image change kare -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=900&q=85"
+                        alt="Early Booking">
+
+                    <div class="discount">
+                        15% OFF
+                    </div>
+
+                </div>
+
+
+                <div class="offer-content">
+
+                    <h3>
+                        Early Booking
+                    </h3>
+
+                    <p>
+                        Plan ahead and save more by booking
+                        your stay in advance.
+                    </p>
+
+
+                    <ul class="offer-list">
+
+                        <li>
+                            Book 15 Days Ahead
+                        </li>
+
+                        <li>
+                            Up to 15% Discount
+                        </li>
+
+                        <li>
+                            Free Breakfast
+                        </li>
+
+                        <li>
+                            Flexible Stay Options
+                        </li>
+
+                    </ul>
+
+
+                    <div class="offer-price">
+
+                        <div class="price">
+
+                            15% OFF
+
+                            <span>
+                                / booking
+                            </span>
+
+                        </div>
+
+
+                        <!-- TODO: Booking page path change kare -->
+
+                        <a
+                            href="booking.html"
+                            class="offer-btn">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================
+                 OFFER 6
+            ====================== -->
+
+            <div class="offer-card">
+
+
+                <div class="offer-image">
+
+                    <!-- TODO: Business package image change kare -->
+
+                    <img
+                        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85"
+                        alt="Business Package">
+
+                    <div class="discount">
+                        12% OFF
+                    </div>
+
+                </div>
+
+
+                <div class="offer-content">
+
+                    <h3>
+                        Business Stay
+                    </h3>
+
+                    <p>
+                        A convenient package for business
+                        travellers and corporate guests.
+                    </p>
+
+
+                    <ul class="offer-list">
+
+                        <li>
+                            Executive Room
+                        </li>
+
+                        <li>
+                            Breakfast Included
+                        </li>
+
+                        <li>
+                            High-Speed Wi-Fi
+                        </li>
+
+                        <li>
+                            Meeting Room Access
+                        </li>
+
+                    </ul>
+
+
+                    <div class="offer-price">
+
+                        <div class="price">
+
+                            12% OFF
+
+                            <span>
+                                / stay
+                            </span>
+
+                        </div>
+
+
+                        <!-- TODO: Booking page path change kare -->
+
+                        <a
+                            href="booking.html"
+                            class="offer-btn">
+
+                            Book Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FEATURED OFFER
+    ========================== -->
+
+    <section class="section">
+
+
+        <div class="featured-offer">
+
+
+            <div class="featured-image">
+
+                <!-- TODO: Featured offer image change kare -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1000&q=85"
+                    alt="Luxury Stay">
+
+            </div>
+
+
+            <div class="featured-content">
+
+                <span>
+                    MOST POPULAR
+                </span>
+
+
+                <h2>
+                    Luxury Stay Experience
+                </h2>
+
+
+                <p>
+                    Treat yourself to a premium stay with
+                    everything you need for a truly memorable
+                    hotel experience.
+                </p>
+
+
+                <ul class="featured-list">
+
+                    <li>
+                        Luxury Suite Accommodation
+                    </li>
+
+                    <li>
+                        Daily Breakfast
+                    </li>
+
+                    <li>
+                        Special Dinner Experience
+                    </li>
+
+                    <li>
+                        Complimentary Wi-Fi
+                    </li>
+
+                    <li>
+                        Late Check-out
+                    </li>
+
+                </ul>
+
+
+                <!-- TODO: Booking page path change kare -->
+
+                <a
+                    href="booking.html"
+                    class="featured-btn">
+
+                    Reserve This Offer
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         INFORMATION
+    ========================== -->
+
+    <section class="section">
+
+
+        <div class="section-heading">
+
+            <span>Good To Know</span>
+
+            <h2>Offer Information</h2>
+
+            <p>
+                Please review the basic conditions before
+                booking any special package.
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Advance Booking
+                </h3>
+
+                <p>
+                    Some offers require advance booking.
+                    Availability may vary depending on dates.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    💳
+                </div>
+
+                <h3>
+                    Payment
+                </h3>
+
+                <p>
+                    Payment conditions may vary according
+                    to the selected package.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📋
+                </div>
+
+                <h3>
+                    Terms & Conditions
+                </h3>
+
+                <p>
+                    Offers are subject to availability and
+                    hotel terms and conditions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <h2>
+            Find Your Perfect Stay
+        </h2>
+
+        <p>
+            Choose an offer and make your next stay
+            more comfortable and memorable.
+        </p>
+
+
+        <!-- TODO: Booking page path change kare -->
+
+        <a
+            href="booking.html"
+            class="cta-btn">
+
+            Book Your Stay
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-col">
+
+                <!-- TODO: Hotel name change kare -->
+
+                <h3>
+                    Kavya Residency
+                </h3>
+
+                <p>
+                    Experience comfort, elegance and warm hospitality
+                    in a place that feels like home.
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <a href="rooms.html">
+                    Rooms
+                </a>
+
+
+                <a href="dining.html">
+                    Dining
+                </a>
+
+
+                <a href="gallery.html">
+                    Gallery
+                </a>
+
+
+                <!-- TODO: Facilities page ka path change kare -->
+
+                <a href="facilities.html">
+                    Facilities
+                </a>
+
+
+                <!-- TODO: Offers page ka path change kare -->
+
+                <a href="offers.html">
+                    Offers
+                </a>
+
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Contact
+                </h4>
+
+
+                <!-- TODO: Phone number change kare -->
+
+                <a href="tel:+919122580242">
+                    +91 91225 80242
+                </a>
+
+
+                <!-- TODO: Email change kare -->
+
+                <a href="mailto:info@kavyaresidency.com">
+                    info@kavyaresidency.com
+                </a>
+
+
+                <!-- TODO: Address change kare -->
+
+                <p>
+                    Bettiah, West Champaran, Bihar
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <!-- TODO: Hotel name change kare -->
+
+            © 2026 Kavya Residency. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

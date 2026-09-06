@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TODO: Hotel name yaha change kare -->
+    <title>Facilities | Kavya Residency</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f8f7f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: #fff;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .logo {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            color: #b18a4a;
+
+            text-decoration: none;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: #222;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #b18a4a;
+
+        }
+
+
+        .book-btn {
+
+            background: #b18a4a;
+
+            color: white !important;
+
+            padding: 11px 20px;
+
+            border-radius: 4px;
+
+        }
+
+
+        .book-btn:hover {
+
+            background: #967237;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .facilities-hero {
+
+            height: 55vh;
+
+            min-height: 400px;
+
+            /* TODO: Facilities hero image change kare */
+
+            background:
+
+                linear-gradient(
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.55)
+                ),
+
+                url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+        }
+
+
+        .hero-content h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 58px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .hero-content p {
+
+            font-size: 17px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* =========================
+           COMMON SECTION
+        ========================== */
+
+        .section {
+
+            padding: 80px 7%;
+
+        }
+
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .section-heading span {
+
+            color: #b18a4a;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 42px;
+
+            margin: 10px 0;
+
+        }
+
+
+        .section-heading p {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #666;
+
+        }
+
+
+        /* =========================
+           INTRO
+        ========================== */
+
+        .intro {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+
+        }
+
+
+        .intro-image {
+
+            height: 420px;
+
+            overflow: hidden;
+
+            border-radius: 8px;
+
+        }
+
+
+        .intro-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        .intro-content span {
+
+            color: #b18a4a;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .intro-content h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 40px;
+
+            margin: 10px 0 18px;
+
+        }
+
+
+        .intro-content p {
+
+            color: #666;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =========================
+           FACILITIES GRID
+        ========================== */
+
+        .facilities-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+
+        }
+
+
+        .facility-card {
+
+            background: white;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+            transition: 0.3s;
+
+            border-bottom: 3px solid transparent;
+
+        }
+
+
+        .facility-card:hover {
+
+            transform: translateY(-7px);
+
+            border-bottom-color: #b18a4a;
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+
+        }
+
+
+        .facility-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            background: #f5efe4;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 28px;
+
+        }
+
+
+        .facility-card h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 23px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .facility-card p {
+
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           HIGHLIGHT SECTION
+        ========================== */
+
+        .highlight-section {
+
+            background: #222;
+
+            color: white;
+
+        }
+
+
+        .highlight-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+
+            text-align: center;
+
+        }
+
+
+        .highlight-item {
+
+            padding: 25px 15px;
+
+        }
+
+
+        .highlight-number {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #b18a4a;
+
+            font-size: 38px;
+
+            font-weight: 700;
+
+        }
+
+
+        .highlight-item p {
+
+            color: #ccc;
+
+            font-size: 13px;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =========================
+           FACILITY GALLERY
+        ========================== */
+
+        .facility-gallery {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .gallery-item {
+
+            height: 280px;
+
+            overflow: hidden;
+
+            border-radius: 8px;
+
+        }
+
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+
+        }
+
+
+        .gallery-item:hover img {
+
+            transform: scale(1.07);
+
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+
+            padding: 90px 7%;
+
+            text-align: center;
+
+            color: white;
+
+
+            /* TODO: CTA background image change kare */
+
+            background:
+
+                linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.65)
+                ),
+
+                url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+
+        .cta h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 42px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .cta p {
+
+            color: #eee;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .cta-btn {
+
+            display: inline-block;
+
+            background: #b18a4a;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 28px;
+
+            border-radius: 4px;
+
+            font-weight: 600;
+
+        }
+
+
+        .cta-btn:hover {
+
+            background: #967237;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            background: #222;
+
+            color: #ccc;
+
+            padding: 50px 7% 20px;
+
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr;
+
+            gap: 50px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .footer-col h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: white;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .footer-col h4 {
+
+            color: white;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .footer-col p {
+
+            font-size: 14px;
+
+            color: #aaa;
+
+        }
+
+
+        .footer-col a {
+
+            display: block;
+
+            text-decoration: none;
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .footer-col a:hover {
+
+            color: #b18a4a;
+
+        }
+
+
+        .copyright {
+
+            border-top: 1px solid #444;
+
+            padding-top: 20px;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #888;
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 1000px) {
+
+            .facilities-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .highlight-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .intro {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .facility-gallery {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 42px;
+
+            }
+
+
+            .section {
+
+                padding: 60px 5%;
+
+            }
+
+
+            .section-heading h2 {
+
+                font-size: 34px;
+
+            }
+
+
+            .facilities-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .facility-gallery {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .highlight-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+
+            }
+
+
+            .cta h2 {
+
+                font-size: 34px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+
+        <!-- TODO: Hotel name yaha change kare -->
+
+        <a href="index.html" class="logo">
+            Kavya Residency
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="policies.html">
+                policies
+            </a>
+
+            <a href="faq.html">
+                FAQ
+            </a>
+
+            <a href="reviews.html">
+                Reviews
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+            <!-- TODO: Booking page ka path change kare -->
+
+            <a href="booking.html" class="book-btn">
+                Book Now
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="facilities-hero">
+
+        <div class="hero-content">
+
+            <h1>Our Facilities</h1>
+
+            <p>
+                Everything you need for a comfortable and memorable stay
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="section">
+
+
+        <div class="intro">
+
+
+            <div class="intro-image">
+
+                <!-- TODO: Facilities introduction image change kare -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1000&q=85"
+                    alt="Hotel Facilities">
+
+            </div>
+
+
+            <div class="intro-content">
+
+                <span>COMFORT & CONVENIENCE</span>
+
+                <h2>Everything You Need</h2>
+
+                <p>
+                    At Kavya Residency, we believe that a great stay
+                    is about more than just a beautiful room.
+                </p>
+
+                <p>
+                    From relaxing spaces and delicious dining to
+                    modern amenities and attentive service, we provide
+                    everything you need for a comfortable experience.
+                </p>
+
+                <p>
+                    Whether you are travelling for business, leisure
+                    or a special occasion, our facilities are designed
+                    to make your stay convenient and enjoyable.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FACILITIES
+    ========================== -->
+
+    <section class="section">
+
+
+        <div class="section-heading">
+
+            <span>Hotel Amenities</span>
+
+            <h2>Designed Around You</h2>
+
+            <p>
+                Enjoy modern facilities, thoughtful services and
+                comfortable spaces throughout your stay.
+            </p>
+
+        </div>
+
+
+        <div class="facilities-grid">
+
+
+            <!-- FACILITY 1 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🏊
+                </div>
+
+                <h3>Swimming Pool</h3>
+
+                <p>
+                    Relax and refresh yourself in our comfortable
+                    swimming pool area.
+                </p>
+
+            </div>
+
+
+
+            <!-- FACILITY 2 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🍽️
+                </div>
+
+                <h3>Restaurant</h3>
+
+                <p>
+                    Enjoy delicious Indian, Continental and Chinese
+                    cuisine in an elegant setting.
+                </p>
+
+            </div>
+
+
+
+            <!-- FACILITY 3 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    📶
+                </div>
+
+                <h3>Free Wi-Fi</h3>
+
+                <p>
+                    Stay connected with complimentary high-speed
+                    Wi-Fi throughout the hotel.
+                </p>
+
+            </div>
+
+
+
+            <!-- FACILITY 4 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🚗
+                </div>
+
+                <h3>Free Parking</h3>
+
+                <p>
+                    Convenient and secure parking facilities are
+                    available for our guests.
+                </p>
+
+            </div>
+
+
+
+            <!-- FACILITY 5 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🏋️
+                </div>
+
+                <h3>Fitness Center</h3>
+
+                <p>
+                    Keep up with your fitness routine during
+                    your stay.
+                </p>
+
+            </div>
+
+
+
+            <!-- FACILITY 6 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🛎️
+                </div>
+
+                <h3>24/7 Room Service</h3>
+
+                <p>
+                    Our team is available around the clock to
+                    assist with your needs.
+                </p>
+
+            </div>
+
+
+
+            <!-- FACILITY 7 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🏢
+                </div>
+
+                <h3>Conference Hall</h3>
+
+                <p>
+                    A professional space for meetings, conferences
+                    and business events.
+                </p>
+
+            </div>
+
+
+
+            <!-- FACILITY 8 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🧺
+                </div>
+
+                <h3>Laundry Service</h3>
+
+                <p>
+                    Convenient laundry and clothing care services
+                    are available for guests.
+                </p>
+
+            </div>
+
+
+
+            <!-- FACILITY 9 -->
+
+            <div class="facility-card">
+
+                <div class="facility-icon">
+                    🛡️
+                </div>
+
+                <h3>24/7 Security</h3>
+
+                <p>
+                    Your safety and comfort are our top priorities,
+                    day and night.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HIGHLIGHTS
+    ========================== -->
+
+    <section class="section highlight-section">
+
+
+        <div class="section-heading">
+
+            <span>At A Glance</span>
+
+            <h2 style="color:white;">
+                Hospitality With Care
+            </h2>
+
+            <p style="color:#bbb;">
+                Thoughtful services designed to make every stay
+                comfortable and memorable.
+            </p>
+
+        </div>
+
+
+        <div class="highlight-grid">
+
+
+            <div class="highlight-item">
+
+                <div class="highlight-number">
+                    24/7
+                </div>
+
+                <p>
+                    Guest Assistance
+                </p>
+
+            </div>
+
+
+            <div class="highlight-item">
+
+                <div class="highlight-number">
+                    100%
+                </div>
+
+                <p>
+                    Guest Comfort
+                </p>
+
+            </div>
+
+
+            <div class="highlight-item">
+
+                <div class="highlight-number">
+                    9+
+                </div>
+
+                <p>
+                    Premium Facilities
+                </p>
+
+            </div>
+
+
+            <div class="highlight-item">
+
+                <div class="highlight-number">
+                    ⭐ 5
+                </div>
+
+                <p>
+                    Hospitality Experience
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FACILITY GALLERY
+    ========================== -->
+
+    <section class="section">
+
+
+        <div class="section-heading">
+
+            <span>Explore</span>
+
+            <h2>Our Facilities Gallery</h2>
+
+            <p>
+                Take a look at some of the spaces and facilities
+                available at Kavya Residency.
+            </p>
+
+        </div>
+
+
+        <div class="facility-gallery">
+
+
+            <div class="gallery-item">
+
+                <!-- TODO: Facility gallery image 1 change kare -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=900&q=85"
+                    alt="Swimming Pool">
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <!-- TODO: Facility gallery image 2 change kare -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85"
+                    alt="Restaurant">
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <!-- TODO: Facility gallery image 3 change kare -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85"
+                    alt="Fitness Center">
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <!-- TODO: Facility gallery image 4 change kare -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85"
+                    alt="Conference Hall">
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <!-- TODO: Facility gallery image 5 change kare -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=85"
+                    alt="Hotel Facilities">
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <!-- TODO: Facility gallery image 6 change kare -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=85"
+                    alt="Hotel Interior">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <h2>Enjoy a Comfortable Stay</h2>
+
+        <p>
+            Experience the facilities and warm hospitality
+            of Kavya Residency.
+        </p>
+
+
+        <!-- TODO: Booking page ka path change kare -->
+
+        <a
+            href="booking.html"
+            class="cta-btn">
+
+            Book Your Stay
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-col">
+
+                <!-- TODO: Hotel name change kare -->
+
+                <h3>
+                    Kavya Residency
+                </h3>
+
+                <p>
+                    Experience comfort, elegance and warm hospitality
+                    in a place that feels like home.
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <a href="rooms.html">
+                    Rooms
+                </a>
+
+
+                <a href="dining.html">
+                    Dining
+                </a>
+
+
+                <a href="gallery.html">
+                    Gallery
+                </a>
+
+
+                <!-- TODO: Facilities page ka path change kare -->
+
+                <a href="facilities.html">
+                    Facilities
+                </a>
+
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Contact
+                </h4>
+
+
+                <!-- TODO: Phone number change kare -->
+
+                <a href="tel:+919122580242">
+                    +91 91225 80242
+                </a>
+
+
+                <!-- TODO: Email change kare -->
+
+                <a href="mailto:info@kavyaresidency.com">
+                    info@kavyaresidency.com
+                </a>
+
+
+                <!-- TODO: Address change kare -->
+
+                <p>
+                    Bettiah, West Champaran, Bihar
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <!-- TODO: Hotel name change kare -->
+
+            © 2026 Kavya Residency. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

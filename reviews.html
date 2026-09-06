@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TODO: Browser tab title me hotel ka naam change karein -->
+    <title>Guest Reviews | Kavya Residency</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: #f8f7f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            background: #fff;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            font-weight: 700;
+            color: #b18a4a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #b18a4a;
+        }
+
+        .book-btn {
+            background: #b18a4a;
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 4px;
+        }
+
+        .book-btn:hover {
+            background: #8f6d38;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            height: 390px;
+
+            /* TODO: Yahan apni hotel/reviews wali image ka URL lagayein */
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 58px;
+            margin-bottom: 12px;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* =========================
+           COMMON
+        ========================== */
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #777;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* =========================
+           RATING SUMMARY
+        ========================== */
+
+        .rating-summary {
+            max-width: 1050px;
+            margin: -45px auto 70px;
+            position: relative;
+            z-index: 5;
+            background: white;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .overall-rating {
+            padding: 45px;
+            text-align: center;
+            background: #fff;
+            border-right: 1px solid #eee;
+        }
+
+        .overall-rating h3 {
+            font-size: 60px;
+            font-weight: 700;
+            color: #b18a4a;
+            line-height: 1;
+        }
+
+        .stars {
+            color: #b18a4a;
+            font-size: 25px;
+            letter-spacing: 3px;
+            margin: 15px 0;
+        }
+
+        .overall-rating p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .rating-bars {
+            padding: 35px 45px;
+        }
+
+        .rating-row {
+            display: grid;
+            grid-template-columns: 50px 1fr 45px;
+            align-items: center;
+            gap: 12px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: #b18a4a;
+            border-radius: 10px;
+        }
+
+        /* =========================
+           REVIEW CARDS
+        ========================== */
+
+        .reviews-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+            transition: 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .review-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .guest {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .guest-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #b18a4a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .guest h4 {
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .guest small {
+            color: #888;
+            font-size: 11px;
+        }
+
+        .review-stars {
+            color: #b18a4a;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .review-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .review-date {
+            display: block;
+            color: #aaa;
+            font-size: 11px;
+            margin-top: 20px;
+        }
+
+        /* =========================
+           WRITE REVIEW
+        ========================== */
+
+        .write-review-section {
+            background: #fff;
+        }
+
+        .review-form {
+            max-width: 850px;
+            margin: auto;
+            background: #f8f7f4;
+            padding: 40px;
+            border-radius: 6px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #b18a4a;
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #b18a4a;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #8f6d38;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            padding: 14px;
+            background: #eaf7ed;
+            color: #26733b;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background:
+                linear-gradient(rgba(34, 34, 34, 0.92), rgba(34, 34, 34, 0.92)),
+                url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+            text-align: center;
+            padding: 80px 7%;
+        }
+
+        .cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #ddd;
+            max-width: 650px;
+            margin: auto auto 28px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #b18a4a;
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #8f6d38;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #181818;
+            color: #ddd;
+            padding: 55px 7% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: #b18a4a;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            font-size: 13px;
+            max-width: 400px;
+        }
+
+        footer h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #aaa;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #b18a4a;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 45px;
+            }
+
+            .rating-summary {
+                grid-template-columns: 1fr;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            .overall-rating {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                height: 320px;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .rating-summary {
+                margin-top: -30px;
+            }
+
+            .rating-bars {
+                padding: 25px;
+            }
+
+            .overall-rating {
+                padding: 35px 20px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .review-form {
+                padding: 25px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <!-- TODO: Hotel name/logo change karein -->
+        <a href="index.html" class="logo">Kavya Residency</a>
+
+        <ul class="nav-links">
+             <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>  
+            <!-- <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="dining.html">Dining</a></li> -->
+            <li><a href="faq.html">FAQ</a></li>  
+            <li><a href="facilities.html">Facilities</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="reviews.html" class="active">Reviews</a></li>
+
+            <!-- TODO: Agar contact page ka naam change karein to link update karein -->
+            <li><a href="contact.html">Contact</a></li>
+
+            <li><a href="booking.html" class="book-btn">Book Now</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Guest Reviews</h1>
+
+            <p>
+                Discover what our guests have to say about their stay
+                at Kavya Residency.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RATING SUMMARY
+    ========================== -->
+
+    <div class="rating-summary">
+
+        <div class="overall-rating">
+
+            <h3>4.8</h3>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>Based on 128 guest reviews</p>
+
+        </div>
+
+
+        <div class="rating-bars">
+
+            <div class="rating-row">
+                <span>5 ★</span>
+
+                <div class="bar">
+                    <span style="width: 90%;"></span>
+                </div>
+
+                <span>90%</span>
+            </div>
+
+
+            <div class="rating-row">
+                <span>4 ★</span>
+
+                <div class="bar">
+                    <span style="width: 7%;"></span>
+                </div>
+
+                <span>7%</span>
+            </div>
+
+
+            <div class="rating-row">
+                <span>3 ★</span>
+
+                <div class="bar">
+                    <span style="width: 2%;"></span>
+                </div>
+
+                <span>2%</span>
+            </div>
+
+
+            <div class="rating-row">
+                <span>2 ★</span>
+
+                <div class="bar">
+                    <span style="width: 1%;"></span>
+                </div>
+
+                <span>1%</span>
+            </div>
+
+
+            <div class="rating-row">
+                <span>1 ★</span>
+
+                <div class="bar">
+                    <span style="width: 0%;"></span>
+                </div>
+
+                <span>0%</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         REVIEWS
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>What Our Guests Say</h2>
+
+            <p>
+                Genuine experiences from guests who stayed with us.
+            </p>
+
+        </div>
+
+
+        <div class="reviews-grid">
+
+            <!-- Review 1 -->
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <div class="guest">
+
+                        <div class="guest-avatar">
+                            A
+                        </div>
+
+                        <div>
+                            <h4>Aditya Sharma</h4>
+                            <small>Family Stay</small>
+                        </div>
+
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+                <p>
+                    "The room was very clean and comfortable.
+                    The staff was polite and helpful. We really
+                    enjoyed our family stay here."
+                </p>
+
+                <span class="review-date">
+                    August 2026
+                </span>
+
+            </div>
+
+
+            <!-- Review 2 -->
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <div class="guest">
+
+                        <div class="guest-avatar">
+                            P
+                        </div>
+
+                        <div>
+                            <h4>Priya Verma</h4>
+                            <small>Couple Stay</small>
+                        </div>
+
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+                <p>
+                    "Beautiful hotel with a peaceful atmosphere.
+                    The room was spacious and the food at the
+                    restaurant was excellent."
+                </p>
+
+                <span class="review-date">
+                    July 2026
+                </span>
+
+            </div>
+
+
+            <!-- Review 3 -->
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <div class="guest">
+
+                        <div class="guest-avatar">
+                            R
+                        </div>
+
+                        <div>
+                            <h4>Rahul Kumar</h4>
+                            <small>Business Stay</small>
+                        </div>
+
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+                <p>
+                    "Perfect place for a business trip.
+                    Wi-Fi was fast, the room was comfortable
+                    and the service was excellent."
+                </p>
+
+                <span class="review-date">
+                    July 2026
+                </span>
+
+            </div>
+
+
+            <!-- Review 4 -->
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <div class="guest">
+
+                        <div class="guest-avatar">
+                            N
+                        </div>
+
+                        <div>
+                            <h4>Neha Singh</h4>
+                            <small>Weekend Stay</small>
+                        </div>
+
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★☆
+                    </div>
+
+                </div>
+
+                <p>
+                    "The overall experience was very good.
+                    The hotel is beautiful and the staff members
+                    were very friendly."
+                </p>
+
+                <span class="review-date">
+                    June 2026
+                </span>
+
+            </div>
+
+
+            <!-- Review 5 -->
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <div class="guest">
+
+                        <div class="guest-avatar">
+                            S
+                        </div>
+
+                        <div>
+                            <h4>Saurabh Gupta</h4>
+                            <small>Family Stay</small>
+                        </div>
+
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+                <p>
+                    "Great hospitality and delicious food.
+                    Our children especially loved the swimming
+                    pool. We would definitely visit again."
+                </p>
+
+                <span class="review-date">
+                    June 2026
+                </span>
+
+            </div>
+
+
+            <!-- Review 6 -->
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <div class="guest">
+
+                        <div class="guest-avatar">
+                            M
+                        </div>
+
+                        <div>
+                            <h4>Meera Patel</h4>
+                            <small>Luxury Stay</small>
+                        </div>
+
+                    </div>
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+                <p>
+                    "Amazing experience from check-in to check-out.
+                    The suite was elegant, clean and very comfortable.
+                    Highly recommended."
+                </p>
+
+                <span class="review-date">
+                    May 2026
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WRITE A REVIEW
+    ========================== -->
+
+    <section class="section write-review-section" id="write-review">
+
+        <div class="section-title">
+
+            <h2>Write a Review</h2>
+
+            <p>
+                Stayed with us? Share your experience with future guests.
+            </p>
+
+        </div>
+
+
+        <form class="review-form" id="reviewForm">
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="rating">
+                    Your Rating
+                </label>
+
+                <select id="rating" required>
+
+                    <option value="">
+                        Select rating
+                    </option>
+
+                    <option value="5">
+                        ★★★★★ — Excellent
+                    </option>
+
+                    <option value="4">
+                        ★★★★☆ — Very Good
+                    </option>
+
+                    <option value="3">
+                        ★★★☆☆ — Good
+                    </option>
+
+                    <option value="2">
+                        ★★☆☆☆ — Average
+                    </option>
+
+                    <option value="1">
+                        ★☆☆☆☆ — Poor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="review">
+                    Your Review
+                </label>
+
+                <textarea
+                    id="review"
+                    placeholder="Tell us about your experience..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button type="submit" class="submit-btn">
+                Submit Review
+            </button>
+
+
+            <div class="success-message" id="successMessage">
+                Thank you! Your review has been submitted successfully.
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <h2>Experience Kavya Residency</h2>
+
+        <p>
+            Book your stay today and create an experience
+            worth reviewing.
+        </p>
+
+        <!-- TODO: Booking page ka filename change ho to link update karein -->
+        <a href="booking.html" class="cta-btn">
+            Book Your Stay
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <!-- TODO: Hotel name change karein -->
+                <h3>Kavya Residency</h3>
+
+                <p>
+                    Experience comfort, elegance and warm hospitality
+                    at Kavya Residency. Your perfect stay begins here.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="rooms.html">Rooms</a>
+                    </li>
+
+                    <li>
+                        <a href="dining.html">Dining</a>
+                    </li>
+
+                    <li>
+                        <a href="facilities.html">Facilities</a>
+                    </li>
+
+                    <li>
+                        <a href="offers.html">Offers</a>
+                    </li>
+
+                    <li>
+                        <a href="reviews.html">Reviews</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <ul>
+
+                    <!-- TODO: Apna actual address yahan likhein -->
+                    <li>
+                        <a href="contact.html">
+                            bettiah, Bihar, India
+                        </a>
+                    </li>
+
+                    <!-- TODO: Apna actual phone number yahan likhein -->
+                    <li>
+                        <a href="tel:+919122580242">
+                            +91 91225 80242
+                        </a>
+                    </li>
+
+                    <!-- TODO: Apna actual email yahan likhein -->
+                    <li>
+                        <a href="mailto:info@kavyaresidency.com">
+                            info@kavyaresidency.com
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <!-- TODO: Hotel name change karein -->
+            © 2026 Kavya Residency. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const reviewForm = document.getElementById("reviewForm");
+        const successMessage = document.getElementById("successMessage");
+
+        reviewForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const rating = document.getElementById("rating").value;
+            const review = document.getElementById("review").value.trim();
+
+            if (!name || !email || !rating || !review) {
+
+                alert("Please fill in all the fields.");
+
+                return;
+            }
+
+            /*
+                TODO:
+                Abhi review sirf frontend par temporary submit ho raha hai.
+
+                Future me yahan:
+                1. Backend API
+                2. Database
+                3. Admin approval
+                4. Real guest reviews
+
+                connect kiye ja sakte hain.
+            */
+
+            successMessage.style.display = "block";
+
+            reviewForm.reset();
+
+            setTimeout(function() {
+
+                successMessage.style.display = "none";
+
+            }, 5000);
+
+        });
+
+    </script>
+
+</body>
+</html>

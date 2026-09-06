@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TODO: Hotel name change karein -->
+    <title>Hotel Policies | Kavya Residency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: #f8f7f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            height: 75px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            font-weight: 700;
+            color: #b18a4a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #b18a4a;
+        }
+
+        .book-btn {
+            background: #b18a4a;
+            color: #fff !important;
+            padding: 11px 20px;
+            border-radius: 4px;
+        }
+
+        .book-btn:hover {
+            background: #8f6d38;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            height: 390px;
+
+            /* TODO: Policies page ki image change karein */
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.60),
+                    rgba(0, 0, 0, 0.60)
+                ),
+                url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 56px;
+            margin-bottom: 12px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            max-width: 680px;
+            margin: auto;
+        }
+
+        /* =========================
+           COMMON SECTION
+        ========================== */
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: auto;
+            font-size: 14px;
+        }
+
+        /* =========================
+           POLICY INTRO
+        ========================== */
+
+        .policy-intro {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .policy-intro strong {
+            color: #b18a4a;
+        }
+
+        /* =========================
+           POLICY CARDS
+        ========================== */
+
+        .policy-grid {
+            max-width: 1100px;
+            margin: 50px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .policy-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+            transition: 0.3s;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.11);
+        }
+
+        .policy-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #f3eee5;
+            color: #b18a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .policy-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .policy-card p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .policy-card ul {
+            padding-left: 20px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .policy-card li {
+            margin-bottom: 7px;
+        }
+
+        /* =========================
+           HIGHLIGHT POLICY
+        ========================== */
+
+        .highlight-section {
+            background: #222;
+            color: #fff;
+            padding: 75px 7%;
+        }
+
+        .highlight-content {
+            max-width: 950px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .highlight-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .highlight-content p {
+            color: #ccc;
+            max-width: 700px;
+            margin: auto auto 30px;
+            font-size: 14px;
+        }
+
+        .important-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .important-box h4 {
+            color: #b18a4a;
+            margin-bottom: 10px;
+        }
+
+        .important-box p {
+            margin: 0;
+            color: #ddd;
+            font-size: 13px;
+        }
+
+        /* =========================
+           TERMS
+        ========================== */
+
+        .terms-box {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+        }
+
+        .terms-box h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .terms-box p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .terms-box ol {
+            padding-left: 22px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .terms-box li {
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background:
+                linear-gradient(
+                    rgba(34, 34, 34, 0.92),
+                    rgba(34, 34, 34, 0.92)
+                ),
+                url("https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            color: #fff;
+            text-align: center;
+            padding: 80px 7%;
+        }
+
+        .cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #ddd;
+            max-width: 650px;
+            margin: auto auto 28px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #b18a4a;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background: #8f6d38;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #181818;
+            color: #ddd;
+            padding: 55px 7% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: #b18a4a;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            font-size: 13px;
+            max-width: 400px;
+        }
+
+        footer h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #aaa;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #b18a4a;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                height: 320px;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .policy-card {
+                padding: 25px;
+            }
+
+            .highlight-content h2 {
+                font-size: 32px;
+            }
+
+            .terms-box {
+                padding: 25px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <!-- TODO: Hotel name change karein -->
+        <a href="index.html" class="logo">
+            Kavya Residency
+        </a>
+
+        <ul class="nav-links">
+
+            <!-- <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li>
+                <a href="rooms.html">Rooms</a>
+            </li>
+
+            <li>
+                <a href="dining.html">Dining</a>
+            </li>
+
+            <li>
+                <a href="gallery.html">Gallery</a>
+            </li> -->
+
+            <li>
+                <a href="facilities.html">Facilities</a>
+            </li>
+
+            <li>
+                <a href="offers.html">Offers</a>
+            </li>
+
+            <li>
+                <a href="reviews.html">Reviews</a>
+            </li>
+
+            <li>
+                <a href="faq.html">FAQ</a>
+            </li>
+
+            <li>
+                <a href="availability.html">Availability</a>
+            </li>
+
+            <li>
+                <a href="policies.html" class="active">
+                    Policies
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+            <li>
+                <a href="booking.html" class="book-btn">
+                    Book Now
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Hotel Policies</h1>
+
+            <p>
+                Please review our hotel policies to ensure
+                a smooth and comfortable stay.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>Our Hotel Policies</h2>
+
+            <p>
+                Important information for all guests staying
+                at Kavya Residency.
+            </p>
+
+        </div>
+
+        <div class="policy-intro">
+
+            <p>
+                At <strong>Kavya Residency</strong>, we want every
+                guest to enjoy a safe, comfortable and pleasant stay.
+                Please read the following policies before making
+                your reservation.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             POLICY CARDS
+        ========================== -->
+
+        <div class="policy-grid">
+
+
+            <!-- CHECK-IN -->
+
+            <div class="policy-card">
+
+                <div class="policy-icon">
+                    🕑
+                </div>
+
+                <h3>Check-in & Check-out</h3>
+
+                <p>
+                    Our standard timings are designed to make
+                    arrival and departure convenient.
+                </p>
+
+                <ul>
+                    <li>Check-in: 2:00 PM</li>
+                    <li>Check-out: 11:00 AM</li>
+                    <li>Early check-in is subject to availability.</li>
+                    <li>Late check-out may involve additional charges.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- CANCELLATION -->
+
+            <div class="policy-card">
+
+                <div class="policy-icon">
+                    📅
+                </div>
+
+                <h3>Cancellation Policy</h3>
+
+                <p>
+                    Cancellation terms may vary depending on the
+                    room type, rate and booking offer.
+                </p>
+
+                <ul>
+                    <li>Check your booking confirmation for specific terms.</li>
+                    <li>Some promotional rates may be non-refundable.</li>
+                    <li>Late cancellations may attract charges.</li>
+                    <li>No-show bookings may be charged according to the selected rate.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="policy-card">
+
+                <div class="policy-icon">
+                    💳
+                </div>
+
+                <h3>Payment Policy</h3>
+
+                <p>
+                    Payment requirements depend on the selected
+                    room and booking option.
+                </p>
+
+                <ul>
+                    <li>Advance payment may be required for selected bookings.</li>
+                    <li>Accepted payment methods may include cards and online payments.</li>
+                    <li>Additional hotel services may be charged separately.</li>
+                    <li>Final charges will be shown during booking or checkout.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- CHILDREN -->
+
+            <div class="policy-card">
+
+                <div class="policy-icon">
+                    👨‍👩‍👧
+                </div>
+
+                <h3>Children Policy</h3>
+
+                <p>
+                    Families are welcome at Kavya Residency.
+                </p>
+
+                <ul>
+                    <li>Children are welcome.</li>
+                    <li>Additional charges may apply depending on age and room occupancy.</li>
+                    <li>Extra beds are subject to availability.</li>
+                    <li>Please mention children's requirements while booking.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- PETS -->
+
+            <div class="policy-card">
+
+                <div class="policy-icon">
+                    🐾
+                </div>
+
+                <h3>Pet Policy</h3>
+
+                <p>
+                    Pet availability depends on hotel rules and
+                    selected room type.
+                </p>
+
+                <ul>
+                    <li>Please contact the hotel before travelling with a pet.</li>
+                    <li>Pets may not be permitted in certain areas.</li>
+                    <li>Additional cleaning or service charges may apply.</li>
+                    <li>Guests are responsible for their pets.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- SMOKING -->
+
+            <div class="policy-card">
+
+                <div class="policy-icon">
+                    🚭
+                </div>
+
+                <h3>Smoking Policy</h3>
+
+                <p>
+                    We maintain a comfortable environment for
+                    all our guests.
+                </p>
+
+                <ul>
+                    <li>Smoking restrictions apply inside designated areas.</li>
+                    <li>Please use designated smoking areas where provided.</li>
+                    <li>Smoking in restricted rooms may result in additional cleaning charges.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- GUEST CONDUCT -->
+
+            <div class="policy-card">
+
+                <div class="policy-icon">
+                    🤝
+                </div>
+
+                <h3>Guest Conduct</h3>
+
+                <p>
+                    Guests are expected to respect the property,
+                    staff and other guests.
+                </p>
+
+                <ul>
+                    <li>Excessive noise is not permitted.</li>
+                    <li>Damage to hotel property may result in charges.</li>
+                    <li>Illegal activities are strictly prohibited.</li>
+                    <li>Guests must follow hotel safety instructions.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- SAFETY -->
+
+            <div class="policy-card">
+
+                <div class="policy-icon">
+                    🛡️
+                </div>
+
+                <h3>Safety & Security</h3>
+
+                <p>
+                    Guest safety is one of our highest priorities.
+                </p>
+
+                <ul>
+                    <li>24/7 security services are available.</li>
+                    <li>Please keep valuables secured.</li>
+                    <li>Report suspicious activity to hotel staff.</li>
+                    <li>Follow emergency instructions when required.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         IMPORTANT INFORMATION
+    ========================== -->
+
+    <section class="highlight-section">
+
+        <div class="highlight-content">
+
+            <h2>Important Information</h2>
+
+            <p>
+                Policies may vary depending on your selected
+                room, rate plan, package or special offer.
+            </p>
+
+
+            <div class="important-box">
+
+                <h4>⚠️ Please Note</h4>
+
+                <p>
+                    The policies shown on this website are general
+                    hotel policies. Your booking confirmation may
+                    contain additional or different terms. Always
+                    review your final booking confirmation before
+                    completing your reservation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TERMS & CONDITIONS
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>Terms & Conditions</h2>
+
+            <p>
+                General terms applicable to hotel reservations
+                and guest stays.
+            </p>
+
+        </div>
+
+
+        <div class="terms-box">
+
+            <h3>General Terms</h3>
+
+            <p>
+                By making a reservation with Kavya Residency,
+                guests agree to follow the hotel's applicable
+                rules and policies.
+            </p>
+
+
+            <ol>
+
+                <li>
+                    Guests must provide accurate information
+                    while making a reservation.
+                </li>
+
+                <li>
+                    A valid identification document may be required
+                    during check-in.
+                </li>
+
+                <li>
+                    Room availability is subject to confirmation
+                    by the hotel.
+                </li>
+
+                <li>
+                    The hotel reserves the right to apply charges
+                    for additional services, damages or violations
+                    of applicable hotel policies.
+                </li>
+
+                <li>
+                    Guests should inform the hotel about special
+                    requirements before arrival whenever possible.
+                </li>
+
+                <li>
+                    Hotel services and facilities may be temporarily
+                    unavailable due to maintenance, safety requirements
+                    or circumstances beyond the hotel's control.
+                </li>
+
+                <li>
+                    Policies may be updated from time to time.
+                    Guests should review the applicable terms
+                    before completing a new reservation.
+                </li>
+
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRIVACY NOTICE
+    ========================== -->
+
+    <section class="section" style="padding-top: 0;">
+
+        <div class="terms-box">
+
+            <h3>Privacy Notice</h3>
+
+            <p>
+                We may collect information required to process
+                reservations, communicate with guests and provide
+                hotel services.
+            </p>
+
+            <p>
+                Guest information should be handled securely and
+                only for legitimate hotel and service-related
+                purposes.
+            </p>
+
+            <!-- TODO:
+                 Future me yahan detailed privacy policy,
+                 cookie policy aur data protection information
+                 add ki ja sakti hai.
+            -->
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <h2>Ready to Stay With Us?</h2>
+
+        <p>
+            Review our policies, choose your room and
+            make your reservation today.
+        </p>
+
+        <!-- TODO: Booking page filename change ho to update karein -->
+        <a href="booking.html" class="cta-btn">
+            Book Your Stay
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <!-- TODO: Hotel name change karein -->
+                <h3>Kavya Residency</h3>
+
+                <p>
+                    Experience comfort, elegance and warm hospitality
+                    at Kavya Residency. Your perfect stay begins here.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="rooms.html">Rooms</a>
+                    </li>
+
+                    <li>
+                        <a href="dining.html">Dining</a>
+                    </li>
+
+                    <li>
+                        <a href="facilities.html">Facilities</a>
+                    </li>
+
+                    <li>
+                        <a href="offers.html">Offers</a>
+                    </li>
+
+                    <li>
+                        <a href="reviews.html">Reviews</a>
+                    </li>
+
+                    <li>
+                        <a href="faq.html">FAQ</a>
+                    </li>
+
+                    <li>
+                        <a href="availability.html">
+                            Availability
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="policies.html">
+                            Policies
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <ul>
+
+                    <!-- TODO: Apna actual address yahan likhein -->
+                    <li>
+                        <a href="contact.html">
+                            bettiah, Bihar, India   
+                        </a>
+                    </li>
+
+                    <!-- TODO: Apna actual phone number yahan likhein -->
+                    <li>
+                        <a href="tel:+919122580242">
+                            +91 91225 80242
+                        </a>
+                    </li>
+
+                    <!-- TODO: Apna actual email yahan likhein -->
+                    <li>
+                        <a href="mailto:info@kavyaresidency.com">
+                            info@kavyaresidency.com
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <!-- TODO: Hotel name change karein -->
+            © 2026 Kavya Residency. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
