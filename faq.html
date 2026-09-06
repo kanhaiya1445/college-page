@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TODO: Hotel name change karein -->
+    <title>FAQ | Kavya Residency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: #f8f7f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            height: 75px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            font-weight: 700;
+            color: #b18a4a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #b18a4a;
+        }
+
+        .book-btn {
+            background: #b18a4a;
+            color: #fff !important;
+            padding: 11px 20px;
+            border-radius: 4px;
+        }
+
+        .book-btn:hover {
+            background: #8f6d38;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            height: 380px;
+
+            /* TODO: FAQ page ke liye hotel image change karein */
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.58),
+                    rgba(0, 0, 0, 0.58)
+                ),
+                url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 58px;
+            margin-bottom: 12px;
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* =========================
+           COMMON SECTION
+        ========================== */
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #777;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* =========================
+           FAQ SECTION
+        ========================== */
+
+        .faq-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: #fff;
+            border: none;
+            padding: 22px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .faq-question:hover {
+            color: #b18a4a;
+        }
+
+        .faq-icon {
+            min-width: 30px;
+            height: 30px;
+            border: 1px solid #b18a4a;
+            color: #b18a4a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 25px 22px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            background: #b18a4a;
+            color: #fff;
+        }
+
+        /* =========================
+           CATEGORY CARDS
+        ========================== */
+
+        .category-grid {
+            max-width: 1000px;
+            margin: 20px auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background: #fff;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #f3eee5;
+            color: #b18a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .category-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .category-card p {
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* =========================
+           CONTACT QUESTION
+        ========================== */
+
+        .help-box {
+            max-width: 850px;
+            margin: 60px auto 0;
+            background: #222;
+            color: #fff;
+            padding: 45px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .help-box h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .help-box p {
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .help-btn {
+            display: inline-block;
+            background: #b18a4a;
+            color: #fff;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .help-btn:hover {
+            background: #8f6d38;
+        }
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background:
+                linear-gradient(
+                    rgba(34, 34, 34, 0.92),
+                    rgba(34, 34, 34, 0.92)
+                ),
+                url("https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            color: #fff;
+            text-align: center;
+            padding: 80px 7%;
+        }
+
+        .cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #ddd;
+            max-width: 650px;
+            margin: 0 auto 28px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #b18a4a;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background: #8f6d38;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #181818;
+            color: #ddd;
+            padding: 55px 7% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: #b18a4a;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            font-size: 13px;
+            max-width: 400px;
+        }
+
+        footer h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #b18a4a;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                height: 320px;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .faq-question {
+                padding: 18px;
+                font-size: 13px;
+            }
+
+            .faq-answer p {
+                padding: 0 18px 18px;
+                font-size: 13px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .category-card {
+                padding: 20px 10px;
+            }
+
+            .help-box {
+                padding: 35px 20px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <!-- TODO: Hotel name change karein -->
+        <a href="index.html" class="logo">
+            Kavya Residency
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <!-- <li>
+                <a href="rooms.html">Rooms</a>
+            </li>
+
+            <li>
+                <a href="dining.html">Dining</a>
+            </li>
+
+            <li>
+                <a href="gallery.html">Gallery</a>
+            </li> -->
+
+            <li>
+                <a href="facilities.html">Facilities</a>
+            </li>
+
+            <li>
+                <a href="offers.html">Offers</a>
+            </li>
+
+            <li>
+                <a href="reviews.html">Reviews</a>
+            </li>
+
+            <li>
+                <a href="faq.html" class="active">FAQ</a>
+            </li>
+
+            <!-- TODO: Contact page ka filename change ho to update karein -->
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+            <li>
+                <a href="booking.html" class="book-btn">
+                    Book Now
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Frequently Asked Questions</h1>
+
+            <p>
+                Find answers to the most common questions about
+                staying at Kavya Residency.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ SECTION
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>How Can We Help?</h2>
+
+            <p>
+                Click on any question below to see the answer.
+            </p>
+
+        </div>
+
+
+        <div class="faq-container">
+
+
+            <!-- FAQ 1 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        What time is check-in and check-out?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Standard check-in time is 2:00 PM and
+                        check-out time is 11:00 AM. Early check-in
+                        and late check-out may be available
+                        depending on room availability.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 2 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Do you provide free Wi-Fi?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. Complimentary Wi-Fi is available
+                        throughout the hotel, including guest rooms
+                        and common areas.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 3 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Is parking available at the hotel?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. Complimentary parking is available
+                        for hotel guests. Parking availability may
+                        depend on the number of vehicles.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 4 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Does the room price include breakfast?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Selected room packages include breakfast.
+                        Please check the details of your selected
+                        room or offer before completing your booking.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 5 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Can I cancel or modify my booking?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Cancellation and modification policies depend
+                        on the booking type and selected rate.
+                        Please check our Hotel Policies page for
+                        complete details.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 6 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Do you accept online payments?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. Online payment options can be provided
+                        for eligible bookings. Payment methods and
+                        final payment requirements will be shown
+                        during the booking process.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 7 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Is room service available 24/7?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Yes. 24/7 room service is available for
+                        guests. Menu availability may vary depending
+                        on the time of day.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 8 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Are pets allowed in the hotel?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Pet policies may vary by room type.
+                        Please contact the hotel before booking
+                        if you are travelling with a pet.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 9 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Can I request an extra bed?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        Extra beds or additional sleeping arrangements
+                        may be available for selected rooms. Please
+                        mention your requirement while making the booking.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 10 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        How can I contact the hotel?
+                    </span>
+
+                    <span class="faq-icon">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <p>
+                        You can contact us through our Contact page,
+                        phone number or email address.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ CATEGORIES
+    ========================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>Explore More</h2>
+
+            <p>
+                Find more information about our hotel and services.
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🛏️
+                </div>
+
+                <h3>Rooms</h3>
+
+                <p>
+                    Explore our comfortable rooms and suites.
+                </p>
+
+            </div>
+
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🍽️
+                </div>
+
+                <h3>Dining</h3>
+
+                <p>
+                    Discover our food and dining experience.
+                </p>
+
+            </div>
+
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🏊
+                </div>
+
+                <h3>Facilities</h3>
+
+                <p>
+                    Explore our hotel facilities and services.
+                </p>
+
+            </div>
+
+
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🎁
+                </div>
+
+                <h3>Offers</h3>
+
+                <p>
+                    Check our latest stay packages and offers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             HELP BOX
+        ========================== -->
+
+        <div class="help-box">
+
+            <h3>Still Have a Question?</h3>
+
+            <p>
+                Our team will be happy to help you with any
+                additional questions or special requests.
+            </p>
+
+            <!-- TODO: Contact page ka link update karein -->
+            <a href="contact.html" class="help-btn">
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOOKING CTA
+    ========================== -->
+
+    <section class="cta">
+
+        <h2>Ready to Plan Your Stay?</h2>
+
+        <p>
+            Choose your room and book your comfortable stay
+            at Kavya Residency today.
+        </p>
+
+        <!-- TODO: Booking page ka filename change ho to update karein -->
+        <a href="booking.html" class="cta-btn">
+            Book Your Stay
+        </a>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <!-- TODO: Hotel name change karein -->
+                <h3>Kavya Residency</h3>
+
+                <p>
+                    Experience comfort, elegance and warm hospitality
+                    at Kavya Residency. Your perfect stay begins here.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="rooms.html">Rooms</a>
+                    </li>
+
+                    <li>
+                        <a href="dining.html">Dining</a>
+                    </li>
+
+                    <li>
+                        <a href="facilities.html">Facilities</a>
+                    </li>
+
+                    <li>
+                        <a href="offers.html">Offers</a>
+                    </li>
+
+                    <li>
+                        <a href="reviews.html">Reviews</a>
+                    </li>
+
+                    <li>
+                        <a href="faq.html">FAQ</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <ul>
+
+                    <!-- TODO: Apna actual address yahan likhein -->
+                    <li>
+                        <a href="contact.html">
+                            bettiah, Bihar, India
+                        </a>
+                    </li>
+
+                    <!-- TODO: Apna actual phone number yahan likhein -->
+                    <li>
+                        <a href="tel:+919122580242">
+                            +91 91225 80242
+                        </a>
+                    </li>
+
+                    <!-- TODO: Apna actual email yahan likhein -->
+                    <li>
+                        <a href="mailto:info@kavyaresidency.com">
+                            info@kavyaresidency.com
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <!-- TODO: Hotel name change karein -->
+            © 2026 Kavya Residency. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const faqQuestions =
+            document.querySelectorAll(".faq-question");
+
+
+        faqQuestions.forEach(function(question) {
+
+            question.addEventListener("click", function() {
+
+                const currentItem =
+                    question.parentElement;
+
+
+                const currentAnswer =
+                    currentItem.querySelector(".faq-answer");
+
+
+                /*
+                    Agar current FAQ already open hai
+                    to close kar do.
+                */
+
+                if (currentItem.classList.contains("active")) {
+
+                    currentItem.classList.remove("active");
+
+                    currentAnswer.style.maxHeight = null;
+
+                    return;
+                }
+
+
+                /*
+                    Pehle baaki sab FAQ close karo.
+                */
+
+                document
+                    .querySelectorAll(".faq-item")
+                    .forEach(function(item) {
+
+                        item.classList.remove("active");
+
+                        item.querySelector(".faq-answer")
+                            .style.maxHeight = null;
+
+                    });
+
+
+                /*
+                    Ab current FAQ open karo.
+                */
+
+                currentItem.classList.add("active");
+
+                currentAnswer.style.maxHeight =
+                    currentAnswer.scrollHeight + "px";
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
